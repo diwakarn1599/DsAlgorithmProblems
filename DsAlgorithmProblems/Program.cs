@@ -7,7 +7,7 @@ namespace DsAlgorithmProblems
         static void Main(string[] args)
         {
             Console.WriteLine("Data Structure algorithm Problems");
-            BinarySearch.BinarySearchfile();
+            InsertionSort.InsertionSortString();
         }
     }
 }
