@@ -7,7 +7,8 @@ namespace DsAlgorithmProblems
         static void Main(string[] args)
         {
             Console.WriteLine("Data Structure algorithm Problems");
-            BubbleSort.BubbleSortArray();
+            MergeSort ms = new MergeSort();
+            ms.MergeSortArray();
         }
     }
 }
