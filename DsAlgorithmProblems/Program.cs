@@ -8,7 +8,7 @@ namespace DsAlgorithmProblems
         {
             Console.WriteLine("Data Structure algorithm Problems");
 
-            Anagram.StringAnagram();
+            PrimeWithinRange.ReadInput();
         }
     }
 }
