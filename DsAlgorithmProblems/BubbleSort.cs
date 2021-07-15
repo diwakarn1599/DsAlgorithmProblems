@@ -4,25 +4,26 @@ using System.Text;
 
 namespace DsAlgorithmProblems
 {
-    class BubbleSort
+    class BubbleSort<T> where T:IComparable
     {
-        public static void BubbleSortArray()
+        public static void BubbleSortArray(List<T> arr)
         {
-            int[] arr = { 5, 13, 15, 2, 27, 7 };
-            int len = arr.Length;
+            
+            int len = arr.Count;
             sort(arr, len);
         }
 
-        public static void sort(int[] arr, int len)
+        public static void sort(List<T> arr, int len)
         {
             Console.WriteLine("Before Sorting:\n");
             Print(arr);
-            int temp;
+            T temp;
             for(int i = 0; i < len - 1; i++)
             {
                 for(int j = 0; j < len - i - 1; j++)
                 {
-                    if (arr[j] > arr[j+1])
+                    
+                    if (arr[j].CompareTo(arr[j + 1]) > 0)
                     {
                         temp = arr[j];
                         arr[j] = arr[j + 1];
@@ -34,10 +35,10 @@ namespace DsAlgorithmProblems
             Print(arr);
         }
 
-        public static void  Print(int[] arr)
+        public static void  Print(List<T> arr)
         {
             Console.Write("[");
-            foreach(int i in arr)
+            foreach(T i in arr)
             {
                 Console.Write($"{i} ");
             }

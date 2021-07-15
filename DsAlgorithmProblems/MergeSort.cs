@@ -4,19 +4,28 @@ using System.Text;
 
 namespace DsAlgorithmProblems
 {
-    class MergeSort
+    public class MergeSort<T> where T : IComparable
     {
-        string[] strArr = { "in", "I", "Diwakar", "Tvs Next", "working", "am" };
+        List<T> strArr;
+        public MergeSort(List<T> ls)
+        {
+            this.strArr = ls;
+        }
+        public MergeSort()
+        {
+            Console.WriteLine("Merge Sort");
+        }
+
         public void MergeSortArray()
         {
             
-            int len = strArr.Length;
-            MergeSort ms = new MergeSort();
+            int len = strArr.Count;
+            MergeSort<T> ms = new MergeSort<T>();
             ms.Sort(strArr, 0, len - 1);
             Print(strArr);
         }
 
-        private void Sort(string[] arr,int l, int r)
+        public void Sort(List<T> arr,int l, int r)
         {
             if (l < r)
             {
@@ -32,21 +41,23 @@ namespace DsAlgorithmProblems
             }
         }
 
-        private void MergeArray(string[] arr,int l,int m,int r)
+        public void MergeArray(List<T> arr,int l,int m,int r)
         {
             
                 
                 int size1 = m - l + 1;
                 int size2 = r - m;
 
-                string[] L = new string[size1];
-                string[] R = new string[size2];
+                //string[] L = new string[size1];
+                List<T> L = new List<T>(size1);
+                //string[] R = new string[size2];
+                List<T> R = new List<T>(size1);
                 int i, j;
 
-               for (i = 0; i < size1; ++i)
-                    L[i] = arr[l + i];
-                for (j = 0; j < size2; ++j)
-                    R[j] = arr[m + 1 + j];
+                for (i = 0; i < size1; i++)
+                    L.Add(arr[l + i]);
+                for (j = 0; j < size2; j++)
+                    R.Add(arr[m + 1 + j]);
 
                 
                 i = 0;
@@ -85,9 +96,10 @@ namespace DsAlgorithmProblems
 
         }
 
-        private void Print(string[] arr)
+        private void Print(List<T> arr)
         {
-            foreach(string i in arr)
+            Console.WriteLine("---------After Sorting-------");
+            foreach(T i in arr)
             {
                 Console.Write($"{i} ");
             }

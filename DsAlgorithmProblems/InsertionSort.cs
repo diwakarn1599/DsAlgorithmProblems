@@ -4,14 +4,14 @@ using System.Text;
 
 namespace DsAlgorithmProblems
 {
-    class InsertionSort
+    class InsertionSort<T> where T: IComparable
     {
-        public static void InsertionSortString()
+        public static void InsertionSortString(List<T> list)
         {
-            string[] strArr = { "in", "I", "Diwakar", "Tvs Next", "working", "am" };
-            int len = strArr.Length;
+            List<T> strArr = list;
+            int len = strArr.Count;
             Console.WriteLine("Array of string ---> Before Sorting:\n");
-            foreach (string i in strArr)
+            foreach (T i in strArr)
             {
                 Console.Write($"{i} ");
             }
@@ -19,13 +19,13 @@ namespace DsAlgorithmProblems
         }
 
         //Insertion sort 
-        public static void sort(string[] strArr,int len)
+        public static void sort(List<T> strArr,int len)
         {
             for (int i = 1; i < len; i++)
             {
-                String temp = strArr[i];
+                T temp = strArr[i];
                 int j = i - 1;
-                while (j >= 0 && temp.Length < strArr[j].Length)
+                while (j >= 0 && strArr[j].CompareTo(temp) > 0)
                 {
                     strArr[j + 1] = strArr[j];
                     j--;
@@ -33,7 +33,7 @@ namespace DsAlgorithmProblems
                 strArr[j + 1] = temp;
             }
             Console.WriteLine("\nArray of string ---> After Sorting:\n");
-            foreach (string i in strArr)
+            foreach (T i in strArr)
             {
                 Console.Write($"{i} ");
             }

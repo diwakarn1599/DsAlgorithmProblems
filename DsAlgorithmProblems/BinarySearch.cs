@@ -5,13 +5,19 @@ using System.Text;
 
 namespace DsAlgorithmProblems
 {
-    class BinarySearch
+    class BinarySearch<T> where T : IComparable
     {
         public static void BinarySearchfile()
         {
             string filePath = File.ReadAllText(@"C:\Users\NARD'S IDEAPAD\source\repos\DsAlgorithmProblems\DsAlgorithmProblems\words.txt");
             List<string> list = new List<string>(filePath.Split(" "));
             list.Sort();
+            BinSearch(list);
+
+        }
+        public static void BinSearch(List<string> list)
+        { 
+
             int mid, start = 0,end=list.Count-1;
             int flag = 0;
             Console.WriteLine("Enter the word to be searched in file");
