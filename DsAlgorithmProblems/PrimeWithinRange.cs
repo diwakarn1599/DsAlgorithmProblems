@@ -6,18 +6,15 @@ namespace DsAlgorithmProblems
 {
     class PrimeWithinRange
     {
-        public static void ReadInput()
+
+        public static List<int> FindPrime()
         {
+            List<int> primeList = new List<int>();
             Console.WriteLine("Enter the start range:");
             int start = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Enter the end range:");
             int end = Convert.ToInt32(Console.ReadLine());
-            FindPrime(start, end);
-        }
 
-        public static void FindPrime(int start, int end)
-        {
-            Console.Write("[");
             for (int i = start; i <= end; i++)
             {
                 if (i == 1)
@@ -26,7 +23,7 @@ namespace DsAlgorithmProblems
                 }
                 else if (i == 2)
                 {
-                    Console.Write($" {i}");
+                    primeList.Add(i);
                 }
                 else if(i%2 != 0)
                 {
@@ -41,11 +38,20 @@ namespace DsAlgorithmProblems
                     }
                     if (f != 1)
                     {
-                        Console.Write($" {i}");
+                        primeList.Add(i);
                     }
                 }
             }
-            Console.Write(" ]");
+            return primeList;
+            
+        }
+
+        public static void Print(List<int> list)
+        {
+            foreach (int i in list)
+            {
+                Console.Write($" {i} ");
+            }
         }
     }
 }
